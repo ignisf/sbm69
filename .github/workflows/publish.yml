@@ -1,9 +1,0 @@
-name: Python Publish Workflow
-on:
-  workflow_dispatch:
-
-jobs:
-  publish:
-    uses: microsoft/action-python/.github/workflows/publish.yml@0.2.0
-    secrets:
-      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
