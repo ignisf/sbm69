@@ -29,6 +29,8 @@ class SBM69Connection:
         result = {}
 
         async with self._connection_lock:
+            self._disconnected_event.clear()
+
             connection = await establish_connection(
                 client_class=BleakClient,
                 device=self._ble_device,

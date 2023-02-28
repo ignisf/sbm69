@@ -50,7 +50,7 @@ this, perform the following:
 
 ## On the protocol
 
-The device uses a protocol based on but not compliant to the Blood Measurement
+The device uses a protocol based on but not compliant to the Blood Pressure
 Profile HDP. It exposes the following BLE services and characteristics:
 
 ```
@@ -164,6 +164,10 @@ struct BloodPressureMeasurement {
 
 BloodPressureMeasurement bpm @ 0x00;
 ```
+
+Note that the `medfloat16` fields from the HDP profile specification have been
+replaced with `uint16` fields.
+
 
 ### Further reading:
 
