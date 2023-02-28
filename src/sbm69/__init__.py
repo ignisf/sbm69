@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 __author__ = "Petko Bordjukov <bordjukov+p@gmail.com>"
-__version__ = "0.3.0"
+__version__ = "0.4.1"
 
 from sbm69.connection import *
 

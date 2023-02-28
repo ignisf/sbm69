@@ -1,8 +1,7 @@
 # sbm69
 
 This project provides a library and a CLI to export blood pressure measurements
-as CSV from Hans Dinslage GmbH/Silvercrest SBM69 Bluetooth Blood Pressure
-Monitor devices.
+from SilverCrest® SBM69 Bluetooth Blood Pressure Monitor devices.
 
 ## Installation
 
@@ -16,15 +15,17 @@ Just clone the repo and then execute:
 
 For example:
 
-    $ sbm69
+    $ sbm69 > john-doe-blood-pressure-`date +%F`.csv
 
 ## Before first use
 
 The device requires a one-time pairing in order to provide access to its stored
-blood pressure measurements. Before the first connection attempt. In order to do
-this, perform the following:
+blood pressure measurements. Before the first connection attempt, perform the
+following:
 
-1. On Linux, start a terminal and run `bluetoothctl`.
+### On Linux
+
+1. Start a terminal and run `bluetoothctl`.
 2. In a second terminal issue the `sbm69` command without any arguments.
 3. Press the `M` button on the SBM69 device.
 4. In the second terminal you will see output similar to this:
@@ -42,11 +43,24 @@ this, perform the following:
    [CHG] Device B8:B7:7D:XX:XX:XX ServicesResolved: yes
    [CHG] Device B8:B7:7D:XX:XX:XX Trusted: yes
    Request passkey
-   [agent] Enter passkey (number in 0-999999): 
+   [agent] Enter passkey (number in 0-999999):
    ```
 
 6. Enter the passkey displayed on the SBM69 device's display before it
    disappears.
+
+### On macos
+
+1. Start a terminal that [can request Bluetooth access](https://github.com/hbldh/bleak/issues/761).
+   Macos' default terminal should do.
+2. Call the `sbm69` command.
+3. You will be presented with a 'XXX.app would like to use Bluetooth' message.
+   Click OK.
+4. Call the `sbm69` command again.
+5. Press the `M` button of your SBM69 device.
+6. You will be presented with a dialogue window asking you to enter a
+   passcode.
+7. Enter the passcode displayed on the SBM69 device before it disappears.
 
 ## On the protocol
 
@@ -95,7 +109,7 @@ The `Blood Pressure Feature` characteristic seems to provide incorrect data. It
 indicates that the device only supports 'Pulse Rate Range Detection Support',
 which is not the case.
 
-The `Intermedia Cuff Pressure` characteristic is not usable because the device
+The `Intermediate Cuff Pressure` characteristic is not usable because the device
 does not activate Bluetooth during a measurement.
 
 The `Blood Pressure Measurement` characteristic is used for transferring the
@@ -167,7 +181,6 @@ BloodPressureMeasurement bpm @ 0x00;
 
 Note that the `medfloat16` fields from the HDP profile specification have been
 replaced with `uint16` fields.
-
 
 ### Further reading:
 

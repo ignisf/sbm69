@@ -13,7 +13,7 @@ dependencies = [
     "construct >=2.10.68",
     "inflection >=0.5.1"
 ]
-description = "A library to retrieve blood pressure measurements from the Hans Dinslage GmbH/Silvercrest SBM69 Bluetooth Blood Pressure Monitor"
+description = "A library to retrieve blood pressure measurements from the SilverCrest® SBM69 Bluetooth Blood Pressure Monitor"
 readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
