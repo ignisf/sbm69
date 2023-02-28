@@ -37,6 +37,7 @@ class SBM69Connection:
                 max_attempts=2,
                 use_services_cache=True,
             )
+            await connection.pair()
 
             result["manufacturer_name"] = self._bytearray_as_string(
                 await connection.read_gatt_char(MANUFACTURER_NAME_CHAR_UUID)
